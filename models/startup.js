@@ -7,18 +7,18 @@ const StartupSchema = new Schema({
 
         startup_name: {
             type: String,
-            required: true,
+            // required: true,
         },
         year_founded: {
             type: String,
-            required: true,
+            // required: true,
 
 
         },
 
         googleSlides_link: {
             type: String,
-            required: true,
+            // required: true,
         }
 
 
@@ -27,18 +27,18 @@ const StartupSchema = new Schema({
     company_finance: {
         valuation: {
             type: String,
-            required: true,
+            // required: true,
         },
 
         share_price: {
             type: String,
-            required: true,
+            // required: true,
         },
 
         share_total: {
             // Total number of shares issued
             type: String,
-            required: true,
+            // required: true,
 
         },
 
@@ -48,7 +48,7 @@ const StartupSchema = new Schema({
             */
 
             type: String,
-            required: true,
+            // required: true,
 
 
         }
@@ -59,17 +59,17 @@ const StartupSchema = new Schema({
 
         founders_name: [{
             type: String,
-            required: true,
+            // required: true,
         }],
         founders_linkedin_link: [{
             type: String,
-            required: true,
+            // required: true,
         }],
 
 
     },
 
-    signup: {
+    
 
         email: {
             type: String,
@@ -95,7 +95,9 @@ const StartupSchema = new Schema({
 
 
 
-    }
+    
 
 
 });
+
+module.exports = mongoose.model('Startup', StartupSchema);
