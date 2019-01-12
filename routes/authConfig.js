@@ -18,7 +18,10 @@ module.exports = (app) => {
                     account_id: new mongoose.Types.ObjectId(),
                     email: req.body.email,
                     password: hash,
-                    name: req.body.name
+                    name: req.body.name,
+                    Age: req.body.age,
+                    bio: req.body.bio, 
+                    occupation: req.body.occupation
 
                 });
                 user.save().then(result => {
@@ -48,5 +51,10 @@ module.exports = (app) => {
 
 
 
+    });
+
+
+    app.post('/startup-signup', (req, res) => {
+        // startup signup
     })
 }
