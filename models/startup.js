@@ -3,92 +3,92 @@ const Schema = mongoose.Schema;
 
 const StartupSchema = new Schema({
 
-    startup_info:{
-        
+    startup_info: {
+
         startup_name: {
-            type:String,
+            type: String,
             required: true,
         },
-        year_founded:{ 
-            type:String,
+        year_founded: {
+            type: String,
             required: true,
-    
-    
+
+
         },
 
-        googleSlides_link:{
-            type:String,
+        googleSlides_link: {
+            type: String,
             required: true,
         }
-    
+
 
     },
-    
-    company_finance:{
-        valuation:{
-            type: String,
-            required: true, 
-        },
 
-        share_price:{
+    company_finance: {
+        valuation: {
             type: String,
             required: true,
         },
 
-        share_total:{
+        share_price: {
+            type: String,
+            required: true,
+        },
+
+        share_total: {
             // Total number of shares issued
-            type: String, 
+            type: String,
             required: true,
 
-        }, 
+        },
 
-        selling_shares:{
+        selling_shares: {
             /* the number of shares the startup want's to sell to people on
             the secondary market.
             */
 
             type: String,
             required: true,
-            
-            
+
+
         }
 
     },
 
-    founders:{
-        
+    founders: {
+
         founders_name: [{
             type: String,
-            required
+            required: true,
         }],
         founders_linkedin_link: [{
             type: String,
             required: true,
-        }], 
+        }],
 
-        
+
     },
 
-    signup:{
+    signup: {
 
         email: {
-            type: String, 
+            type: String,
             required: true,
 
-        }, 
+        },
 
-        password:{
-            type: String, 
+        password: {
+            type: String,
             required: true,
-        
-        }, 
-        
+
+        },
+
         registration_date: {
             type: Date,
             default: Date.now
         },
 
-        bio: String, 
+        bio: String,
         account_id: Schema.Types.ObjectId
 
 
