@@ -43,11 +43,11 @@ module.exports = (app) => {
             }
         });
 
-});
+    });
 
-app.post('/startup', (req, res) => {
+    app.post('/startup', (req, res) => {
 
-    console.log('this is the value of req.body.email', req.body.email)
+        console.log('this is the value of req.body.email', req.body.email)
         console.log('password has been saved', req.body.password)
 
         let newBody = req.body;
@@ -65,7 +65,7 @@ app.post('/startup', (req, res) => {
                     Account_id: new mongoose.Types.ObjectId(),
                     email: req.body.email,
                     password: hash,
-                    
+
                 });
                 user.save().then(result => {
                     const JWTToken = jwt.sign({
@@ -76,7 +76,13 @@ app.post('/startup', (req, res) => {
                             expiresIn: '2h'
                         });
                     console.log(result);
-                    return res.json(JWTToken).status(200);
+                    res.cookie("ntoken",JWTToken,{
+                    maxAge: 900000,
+                    httpOnly: true
+
+                    }).status(200);
+                    console.log('User logedin', req.cookies);
+
                 }).catch(error => {
                     console.log(error);
                     res.status(500).json({
@@ -88,11 +94,11 @@ app.post('/startup', (req, res) => {
         })
 
 
-    
-})
+
+    })
 
 
 
 
-    
+
 }
