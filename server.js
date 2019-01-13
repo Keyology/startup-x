@@ -12,10 +12,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.set('view engine', 'ejs');
+
 require('dotenv').config()
 
 const auth = require('./routes/authConfig');
+const home = require('./routes/index');
 auth(app);
+home(app);
 
 
 
